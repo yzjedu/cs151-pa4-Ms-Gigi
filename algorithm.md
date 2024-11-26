@@ -17,7 +17,7 @@ Name: read_file
 Parameters: file_name (str)
 Return: headlines (list of strings)
 Algorithm:
-   1. Set table as an empty string
+   1. Initialize table as an empty string
    2. Open the file specified by file_name for reading.
    3. Read each line of the file and strip any trailing whitespace.
    4. Append each line to a list called headlines.
@@ -30,12 +30,11 @@ Name: count_headlines_with_word
 Parameters: List of headlines, Word
 Return: count (int) – Number of matching headlines.
 Algorithm:
-   1. Initialize a count to 0. 
-   2. Prompt user to enter the word they would like to search for
-   3. For each headline in headlines:
+   1. Initialize a count to 0.
+   2. For each headline in headlines:
       1. Check if the word exists in the headline. 
          1. If found, increment the counter.
-   4. Return count and display
+   3. Return count and display
 
 3. Write Matching Headlines to a File
 Purpose: Write all headlines containing a specific word to a new file.
@@ -43,10 +42,10 @@ Name: write_matching_headlines
 Parameters: headlines, word, output_file
 Return: None
 Algorithm:
-   1. Prompt user to enter the word they would like to use 
-   2. Open the output_file for writing.
-   3. For each headline in headlines:
+   1. Open the output_file for writing.
+   2. For each headline in headlines:
       1. If the word in the headline, write it to the file.
+   3. Print a success message indicating the file has been written.
    
 4. Calculate Average Characters Per Headline
 Purpose: Calculate the average number of characters in the headlines.
@@ -57,8 +56,8 @@ Algorithm:
    1. Initialize a variable total_characters to 0. 
    2. For each row in headlines:
       1. Add the length of the headline to total_characters. 
-      2. Calculate the average as total_characters / number_of_headlines.
-   3. Return the average.
+   3. Calculate the average as total_characters / number_of_headlines.
+   4. Print and Return the average.
 
 5. Find Longest Headline
 Purpose: Find and return the longest headlines by character count.
@@ -83,8 +82,18 @@ Algorithm:
    3. Return the shortest
 
 7. Allow the user to load a new file, replacing the current one.
+Purpose: Allow the user to load a new file, replacing the current list of headlines.
+Name: load_new_file
+Parameters: None
+Return: headlines
+Algorithm:
+   1. Prompt the user to enter the name of a new file.
+   2. Check if the file exists:
+      1. If the file does not exist, print an error message and prompt again.
+   3. Call read_file to load the new file.
+   4. Return the new list of headlines.
 
-7. Main Function
+8. Main Function
 Purpose: Control the program flow.
 Name: main
 Parameters: None
@@ -99,6 +108,9 @@ Algorithm:
       * Find and display the longest and shortest headlines.
       * Load a new file.
       * Quit the program.
-   4. Based on the user’s choice, call the appropriate function.
-   5. Error-check 
-   6. Repeat the menu until the user chooses to quit.
+   4. Prompt the user to enter their choice.
+   5. If the input is not a valid menu option:
+      1. Display an error message and prompt again.
+   6. Based on the user’s choice, call the appropriate function and display the result.
+   7. Repeat the menu until the user selects the option to quit.
+   8. Display a closing message when the program ends.

@@ -1,8 +1,14 @@
 # Programmer Name: Oreoluwa Adebusoye
 # Course:  CS151, Dr. Zelalem Jembre Yalew
 # Due Date: 11/21/2024
-# Program Name:
-# What program does (purpose):
+# Program Name: Headline Analyzer
+# What program does (purpose): The purpose of the program is to analyze headlines from a file by providing tools to count specific words,
+#                              calculate averages, find the longest and shortest headlines, and manage file operations.
+# Data In: Input text file, word to search for, word to match,
+# Data Out: Analysis results, including the count of headlines containing a specific word,
+#           the average number of characters per headline, and the longest and shortest headlines along with their character counts.
+# Credits: Class repository
+# Input Files: The input file must be a plain text file (.txt) where each line represents a single headline.
 
 import os
 
@@ -80,7 +86,7 @@ def find_shortest_headline(headlines):
     for headline in headlines:
         if len(headline) < len(shortest_headline):  # Compare lengths
             shortest_headline = headline
-    print ("\nShortest headline (by characters): {len(shortest_headline)} characters")
+    print (f"\nShortest headline (by characters): {len(shortest_headline)} characters")
 
     return shortest_headline
 
@@ -104,7 +110,7 @@ def main():
     print("Welcome to the Headline Analyzer Program")
     print("=" * 60)
     print(
-        "\nThis program allows you to analyze a list of headlines from a file. "
+        "This program allows you to analyze a list of headlines from a file. "
         "\nYou can count headlines containing specific words, write matching headlines to a file, "
         "\ncalculate average headline length, and find the longest and shortest headlines."
     )
